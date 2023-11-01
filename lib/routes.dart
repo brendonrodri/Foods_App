@@ -5,9 +5,11 @@ class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: Scaffold(
-        body: HomeScreen(),
+        body: SafeArea(
+          child: HomeScreen(),
+        ),
       ),
     );
   }

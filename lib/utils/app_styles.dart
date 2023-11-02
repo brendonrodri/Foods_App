@@ -6,4 +6,14 @@ class AppStyles {
     fontWeight: FontWeight.bold,
     color: Colors.black,
   );
+  static const blackBold18 = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+  );
+  static const blackBold22 = TextStyle(
+    fontSize: 22,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+  );
 }

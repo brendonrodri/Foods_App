@@ -7,7 +7,32 @@ import 'package:shopping/models/menu_item.dart';
 
 class HomeController extends GetxController {
   MenuListItems menuListItems = MenuListItems();
-  FoodsItemsList foodList = FoodsItemsList();
+  FoodsItemsList foodItemsList = FoodsItemsList();
+  Future<List<MenuItem>?> getMenuItem() async {
+    try {
+      final response = await menuList();
+      return menuListItems.setMenuListItems = response;
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
+  Future<List<Food>?> getFoods() async {
+    try {
+      final response = await foodList();
+      final items = foodItemsList.setFoodsItems = response;
+      return items;
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
+  @override
+  void onInit() {
+    getMenuItem();
+    getFoods();
+    super.onInit();
+  }
 }
 
 class MenuListItems {
@@ -19,31 +44,17 @@ class MenuListItems {
 class GetMenuList {
   GetMenuList(this.menuListItems);
   MenuListItems menuListItems;
-  Future<List<MenuItem>?> getMenuItem() async {
-    try {
-      final response = await menuList();
-      return menuListItems.setMenuListItems = response;
-    } catch (e) {
-      debugPrint(e.toString());
-    }
-  }
+  //TODO: implement methods for get list here.
 }
 
 class FoodsItemsList {
   RxList<Food> _foodsItems = RxList<Food>();
-  List<Food> get foodsItems => _foodsItems.value;
-  set foodsItems(List<Food> value) => _foodsItems.value = value;
+  List<Food> get getFoodsItems => _foodsItems.value;
+  set setFoodsItems(List<Food> value) => _foodsItems.value = value;
 }
 
 class GetFoodList {
   GetFoodList(this.foodItemsList);
   FoodsItemsList foodItemsList;
-  Future<List<Food>?> getFoods() async {
-    try {
-      final response = await foodList();
-      return foodItemsList.foodsItems = response;
-    } catch (e) {
-      debugPrint(e.toString());
-    }
-  }
+  //TODO: implement methods for get list here.
 }

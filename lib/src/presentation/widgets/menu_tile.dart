@@ -11,19 +11,21 @@ class MenuTile extends StatelessWidget {
   String? name;
   int? id;
   Function? tileFunction;
+  @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 100,
-      child: GestureDetector(
-        onTap: () {},
-        child: Card(
-          elevation: 3,
-          child: Center(
-            child: Text(
-              name.toString(),
-              style: AppStyles.blackBold16,
-              textAlign: TextAlign.center,
-            ),
+    return Container(
+      padding: const EdgeInsets.only(right: 10),
+      width: 110,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: const Color.fromARGB(205, 255, 255, 255),
+        ),
+        onPressed: () {},
+        child: Center(
+          child: Text(
+            name.toString(),
+            style: AppStyles.blackBold16,
+            textAlign: TextAlign.center,
           ),
         ),
       ),

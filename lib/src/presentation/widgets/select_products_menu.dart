@@ -8,8 +8,8 @@ class SelectProductsMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50,
-      padding: const EdgeInsets.only(left: 10),
+      height: 45,
+      padding: const EdgeInsets.only(left: 5, bottom: 5),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: menuItems!.length,

@@ -14,15 +14,16 @@ class HomeScreen extends StatelessWidget {
   HomeController homeController = Get.put(HomeController());
   @override
   Widget build(BuildContext context) {
+    final menuItem = homeController.menuListItems;
     return SingleChildScrollView(
       child: Flex(
         direction: Axis.vertical,
         children: <Widget>[
           const AppHeader(),
           SelectProductsMenu(
-            menuItems: menuItems,
+            menuItems: homeController.menuListItems.getMenuListItems,
           ),
-          ProductGrid(foodItems),
+          ProductGrid(homeController.foodItemsList.getFoodsItems),
         ],
       ),
     );

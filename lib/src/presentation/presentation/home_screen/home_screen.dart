@@ -20,10 +20,12 @@ class HomeScreen extends StatelessWidget {
         direction: Axis.vertical,
         children: <Widget>[
           const AppHeader(),
-          SelectProductsMenu(
-            menuItems: homeController.menuListItems.getMenuListItems,
+          Obx(
+            () => SelectProductsMenu(
+              menuItems: homeController.menuListItems.getMenuListItems,
+            ),
           ),
-          ProductGrid(homeController.foodItemsList.getFoodsItems),
+          Obx(() => ProductGrid(homeController.foodItemsList.getFoodsItems)),
         ],
       ),
     );
